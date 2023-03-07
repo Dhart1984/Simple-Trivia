@@ -17,8 +17,10 @@ const btnEls = document.querySelectorAll("button");
                                 //event listeners
 
 function handleClick(evt) {
-    console.log(evt.target.textContent)
-};
+    const playerChoice = evt.target.textContent
+    const newQuestion = generateQuestion();
+    console.log(playerChoice, newQuestion)
+}
 
 btnEls.forEach(function (btn){
 
@@ -52,6 +54,12 @@ function renderScores(){
 
 function renderResults(){
     //update results - reult els 
+}
+
+function generateQuestion (){
+    const questionList = ['q1', 'q2', 'q3', 'q4', 'q5']
+    const randomQuestion = Math.floor(Math.random()*questionList.length);
+    return questionList[randomQuestion]
 }
 
 init();

@@ -52,7 +52,12 @@
 })
 -   btn - automatically connects to the button nodes in html. you don't have to declare it a s avariable anywhere. JS already know syour refering to the button eleemnt. You can just use inside of the function. 
 ***Step 9**
+-   track player choice 
+    -   we use our handleClick function data and create a new variable called playerChoice" - any a variable name that correalates with tracking the choices of the human player of the game.
 ***Step 10**
+-   define a function for the skip question button (ie random question generator) 
+    -   creat an object array of the questions we will ask 
+-   
 ***Step 11**
 ***Step 12**
 ***Step 13**
