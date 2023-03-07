@@ -13,7 +13,18 @@
     -   wAnswer
     -   skipQuestion
         -   use document.queryselector to attache node element to JS 
+        -   remember the # tag when using queryselector to attach elements with ID's (dont need pound sign if use getelementbyID)
 ***Step 4**
+-   Initialize State Values 
+    -   under functions in JS outline: Create init function 
+        -   set initial state for our H1's(staevariables) 
+        -   what should the state of the game when the game starts?
+            -   player score will = 0 
+            -   skips will = 0 
+            -   wrong answeres (strikes) will also = 0 
+    -   Define Render function 
+        -   call render function 
+    -   Invoke the Init Function 
 ***Step 5**
 ***Step 6**
 ***Step 7**

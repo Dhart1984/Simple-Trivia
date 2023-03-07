@@ -6,9 +6,23 @@ let skipQuestion;
 let wrongScore;
 //cached elements 
 
-const pScoreEl = document.querySelector("");
-const sScoreEl = document.querySelector("");
-const wScoreEl = document.querySelector("");
+const pScoreEl = document.querySelector("#p-score");
+const sScoreEl = document.querySelector("#s-score");
+const wScoreEl = document.querySelector("#w-score");
 
 //event listeners
 //functions 
+function init(){
+    console.log('starting game')
+    playerScore = 0;
+    skipQuestion = 0;
+    wrongScore = 0;
+
+    render();
+}
+
+function render(){
+    console.log('rendering game')
+}
+
+//init();
