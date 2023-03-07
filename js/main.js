@@ -1,24 +1,33 @@
-// constants 
+                                // constants 
 //apps state (variables) //what data the application of the game needs to render
         //playerScore, rightAnswer
 let playerScore;
 let skipQuestion;
 let wrongScore;
-//cached elements 
+                                //cached elements 
+
 //cached scores
 const pScoreEl = document.querySelector("#p-score");
 const sScoreEl = document.querySelector("#s-score");
 const wScoreEl = document.querySelector("#w-score");
-//cached buttons 
-const btns = document.querySelectorAll("button");
 
-//event listeners
+//cached buttons 
+const btnEls = document.querySelectorAll("button");
+
+                                //event listeners
 
 function handleClick(evt) {
     console.log(evt.target.textContent)
 };
 
-//functions 
+btnEls.forEach(function (btn){
+
+    btn.addEventListener('click', handleClick)
+
+    console.log(btn);
+})
+
+                                //functions 
 
 function init(){
     console.log('starting game')

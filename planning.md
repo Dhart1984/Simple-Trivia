@@ -43,6 +43,14 @@
 -   cache the buttons in a new variable. Since there are no id's on the option buttons, use queryselctor all, and in the ("use the name of the element in html - in this butons")
 ***Step 8**
 -   attach/bind handleclick to each of the button
+    -   Using a "For Each" function 
+        -   btnEls.forEach(function (btn){
+
+    btn.addEventListener('click', handleClick)
+
+    console.log(btn);
+})
+-   btn - automatically connects to the button nodes in html. you don't have to declare it a s avariable anywhere. JS already know syour refering to the button eleemnt. You can just use inside of the function. 
 ***Step 9**
 ***Step 10**
 ***Step 11**
