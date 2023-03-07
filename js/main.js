@@ -5,13 +5,21 @@ let playerScore;
 let skipQuestion;
 let wrongScore;
 //cached elements 
-
+//cached scores
 const pScoreEl = document.querySelector("#p-score");
 const sScoreEl = document.querySelector("#s-score");
 const wScoreEl = document.querySelector("#w-score");
+//cached buttons 
+const btns = document.querySelectorAll("button");
 
 //event listeners
+
+function handleClick(evt) {
+    console.log(evt.target.textContent)
+};
+
 //functions 
+
 function init(){
     console.log('starting game')
     playerScore = 0;
@@ -23,6 +31,18 @@ function init(){
 
 function render(){
     console.log('rendering game')
+    renderScores();
 }
 
-//init();
+function renderScores(){
+    //update cached dom elements - scoreEls
+    pScoreEl.textContent = playerScore;
+    sScoreEl.textContent = skipQuestion;
+    wScoreEl.textContent = wrongScore;
+}
+
+function renderResults(){
+    //update results - reult els 
+}
+
+init();

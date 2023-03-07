@@ -2,16 +2,13 @@ body {
 background-color: rgb(16, 221, 201);
 }
 
-#q1 {
-background-color: aqua;
-}
-
 h1{
   background-color: rgb(174, 255, 0);
   color: blueviolet
   ;
 }
-.questions { 
+
+#all-scores { 
   display: flex;
   justify-content: center;
   align-items: center;

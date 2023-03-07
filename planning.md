@@ -26,9 +26,23 @@
         -   call render function 
     -   Invoke the Init Function 
 ***Step 5**
+-   Add aditional render functions 
+    -   render scores & render results 
+        -   renderscores 
+            -   attach the cached elements created from the state variables to the render scores function using textContent = and directing them back to the variables that show the state of the game when it starts 
+                -   pScoreEl.textContent = playerScore
+                    -   we defined what playerScore is = too above in the init function.
+                        -   when tehe game renders, itwillshow the state of the game in the init function .
 ***Step 6**
+-   Adding Click Events 
+    -   under event listeners in the outline, define a handleClick function 
+        -   function handleClick(evt){
+            console.log(evt.target.textContent)
+        }
 ***Step 7**
+-   cache the buttons in a new variable. Since there are no id's on the option buttons, use queryselctor all, and in the ("use the name of the element in html - in this butons")
 ***Step 8**
+-   attach/bind handleclick to each of the button
 ***Step 9**
 ***Step 10**
 ***Step 11**
