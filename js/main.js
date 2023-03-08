@@ -13,13 +13,16 @@ const wScoreEl = document.querySelector("#w-score");
 
 //cached buttons 
 const btnEls = document.querySelectorAll("#q-button");
-//new add - const tbtnEl = document.querySelector('#true-button')
+const tbtnEl = document.querySelector('#true-button');
+const fbtnEl = document.querySelector('#false-button');
+const sbtnEl = document.querySelector('#start-button');
 
                                 //event listeners
 
 function handleClick(evt) {
     const playerChoice = evt.target.textContent
     const newQuestion = generateQuestion();
+    //const trueChoice = 
     console.log(playerChoice, newQuestion)
 }
 
@@ -28,6 +31,17 @@ btnEls.forEach(function (btn){
     console.log(btn);
 })
 
+tbtnEl.addEventListener('click', function(){
+    console.log('This is True');
+})
+
+fbtnEl.addEventListener('click', function(){
+    console.log("This is False");
+})
+
+sbtnEl.addEventListener('click', function(){
+    console.log("I'm Ready to Play!");
+})
                                 //functions 
 
 function init(){

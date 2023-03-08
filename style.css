@@ -1,9 +1,15 @@
 body {
-background-color: rgb(16, 221, 201);
-
+background-color: whitesmoke
 }
+
+.ctr-scores {
+  background-color: rgb(224, 172, 17);
+  padding: 10px;
+  padding-left: 20px;
+}
+
 .ctr-buttons {
-  background-color: black;
+  background-color: rgb(195, 91, 5);
   padding: 10px;
 }
 #q-buttons {
@@ -13,24 +19,6 @@ background-color: rgb(16, 221, 201);
   display: flex;
 }
 
-button {
-  background-color: red;
-  margin: auto;
-  width: 100px;
 
 
-}
 
-h1{
-  background-color: rgb(174, 255, 0);
-  color: blueviolet
-  ;
-}
-
-#all-scores { 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-
-}
