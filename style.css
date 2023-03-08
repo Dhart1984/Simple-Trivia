@@ -2,6 +2,24 @@ body {
 background-color: rgb(16, 221, 201);
 
 }
+.ctr-buttons {
+  background-color: black;
+  padding: 10px;
+}
+#q-buttons {
+  background-color: white;
+  color: gray;
+  padding: 20px;
+  display: flex;
+}
+
+button {
+  background-color: red;
+  margin: auto;
+  width: 100px;
+
+
+}
 
 h1{
   background-color: rgb(174, 255, 0);
