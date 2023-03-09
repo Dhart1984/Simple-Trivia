@@ -1,27 +1,40 @@
 // constants 
+const questionList = [
+    { question: "True or False: The largest country in the world by land area is Russia.", answer: "true" },
+    { question: "True or False: The capital of France is Paris.", answer: "true" },
+    { question: "True or False: The continent of South America is located entirely in the Southern Hemisphere.", answer: "true" },
+    { question: "True or False: The Great Barrier Reef is located off the coast of Australia.", answer: "true" },
+    { question: "True or False: The highest mountain in North America is Denali (formerly known as Mount McKinley).", answer: "true" },
+    { question: "True or False: The Earth is flat.", answer: "false" },
+    { question: "True or False: A tomato is a fruit.", answer: "true" },
+    { question: "True or False: George Washington was the first President of the United States.", answer: "true" },
+    { question: "True or False: The human body has five senses.", answer: "true" },
+    { question: "True or False: Water boils at 100 degrees Fahrenheit.", answer: "false" },
+    { question: "True or False: The Statue of Liberty is located in Los Angeles.", answer: "false" },
+    { question: "True or False: An octagon has six sides.", answer: "false" },
+    { question: "True or False: The planet Mars is closer to the Sun than Earth.", answer: "false" },
+    { question: "True or False: The Great Wall of China is visible from space.", answer: "false" },
+    { question: "True or False: The primary colors are red, yellow, and blue.", answer: "true" }
 
+];
 
 
 //apps state (variables) //what data the application of the game needs to render
         //playerScore, rightAnswer
 let playerScore;
-let skipQuestion;
-let strikeScore;
+let showQuestion;
 let currentQuestion = generateQuestion();
+
                                 //cached elements 
 
 //cached scores
 const pScoreEl = document.querySelector("#p-score");
-const skpScoreEl = document.querySelector("#skip-score");
-const strScoreEl = document.querySelector("#strike-score");
 const questionEl = document.querySelector('#questions')
-
 //cached buttons 
-const skipBtnEl = document.querySelector("#skip-button");
 const tbtnEl = document.querySelector('#true-button');
 const fbtnEl = document.querySelector('#false-button');
 const sbtnEl = document.querySelector('#start-button');
-
+const showQuestEl = document.querySelector('show-question')
 
                                 //event listeners
 
@@ -29,16 +42,9 @@ function handleClick(evt) {
     const playerChoice = evt.target.textContent
     checkWinner(playerChoice, currentQuestion)
 }
-
-skipBtnEl.addEventListener('click', handleClick)
+//old skio button - just switch elements -variables
+tbtnEl.addEventListener('click', handleClick)
     console.log();
-
-
-
-tbtnEl.addEventListener('click', function(){
-    console.log("this is true");
- 
-})
 
 fbtnEl.addEventListener('click', function(){
     console.log("This is False");
@@ -54,25 +60,25 @@ function init(){
     playerScore = 0;
     skipQuestion = 2;
     strikeScore = 3;
-    currentQuestion = "ready to play";
+    generateQuestion();
 
     render();
 }
 
 function render(){
     console.log('rendering game')
-    renderText();
+    renderScores();
+    generateQuestion();
     //renderResults();
    // generateQuestion();
 }
 
-function renderText(){
+function renderScores(){
     //update cached dom elements - scoreEls
     pScoreEl.textContent = playerScore;
-    skpScoreEl.textContent = skipQuestion;
-    strScoreEl.textContent = strikeScore;
+   // had this as render text 
    
-    
+    //showQuestEl.textContent = showQuestion;
 }
 
 function renderResults(){
@@ -80,36 +86,20 @@ function renderResults(){
 }
 
 function generateQuestion (){
-    const questionList = [
-        { question: "True or False: The largest country in the world by land area is Russia.", answer: "true" },
-        { question: "True or False: The capital of France is Paris.", answer: "true" },
-        { question: "True or False: The continent of South America is located entirely in the Southern Hemisphere.", answer: "true" },
-        { question: "True or False: The Great Barrier Reef is located off the coast of Australia.", answer: "true" },
-        { question: "True or False: The highest mountain in North America is Denali (formerly known as Mount McKinley).", answer: "true" },
-        { question: "True or False: The Earth is flat.", answer: "false" },
-        { question: "True or False: A tomato is a fruit.", answer: "true" },
-        { question: "True or False: George Washington was the first President of the United States.", answer: "true" },
-        { question: "True or False: The human body has five senses.", answer: "true" },
-        { question: "True or False: Water boils at 100 degrees Fahrenheit.", answer: "false" },
-        { question: "True or False: The Statue of Liberty is located in Los Angeles.", answer: "false" },
-        { question: "True or False: An octagon has six sides.", answer: "false" },
-        { question: "True or False: The planet Mars is closer to the Sun than Earth.", answer: "false" },
-        { question: "True or False: The Great Wall of China is visible from space.", answer: "false" },
-        { question: "True or False: The primary colors are red, yellow, and blue.", answer: "true" }
-
-    ];
-
-const currentQuestion = Math.floor(Math.random()*questionList.length);
-return questionList[currentQuestion]
+    let currentQuestion = Math.floor(Math.random()*questionList.length);
+    return questionList[currentQuestion];
+    showQuestEl.textContent; //= showQuestion;
 }
 
 function checkWinner (playerChoice, currentQuestion) {
     console.log('check winner', playerChoice)
     if(playerChoice === currentQuestion.answer) {
         playerScore += 1;
+        console.log("correct")
     } else {
         playerScore -= 1;
-    }
+        console.log("incorrect")
+    };
 }
 
 function gameOver (){

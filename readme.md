@@ -33,7 +33,13 @@ FITST QUESTION IS INDEX 0
         -   Add "cheering" audio when the player gets a question right. 
 
 ***Citing References***
--   LINK: 
+-   LINK: from hungry for more intermediate dom events 
+// Hide / Popup Example - Click event that hides or reveals a section
+const toggle = document.getElementById('hideSection')
+
+toggle.addEventListener('click',(e)=>{
+  document.getElementById('section3').classList.toggle('hide')
+})
 -   LINK: 
 -   LINK: 
 -   LINK: 
