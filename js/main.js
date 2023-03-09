@@ -22,8 +22,9 @@ const questionList = [
 //apps state (variables) //what data the application of the game needs to render
         //playerScore, rightAnswer
 let playerScore;
-let showQuestion;
-let currentQuestion = generateQuestion();
+//let showQuestion; // i added this to see if i could use it to show my questions in the browser -didnt work
+let currentQuestion;
+let questionCount;
 
                                 //cached elements 
 
@@ -34,21 +35,26 @@ const questionEl = document.querySelector('#questions')
 const tbtnEl = document.querySelector('#true-button');
 const fbtnEl = document.querySelector('#false-button');
 const sbtnEl = document.querySelector('#start-button');
-const showQuestEl = document.querySelector('show-question')
+const showQuestEl = document.querySelector('#show-question') // i added this to see if i could use it to show my questions in the browser -didnt work
 
                                 //event listeners
-
+//removed the for each becaue it wasnt an array per instructor notes
 function handleClick(evt) {
-    const playerChoice = evt.target.textContent
-    checkWinner(playerChoice, currentQuestion)
+    const playerChoice = evt.target.textContent.toLowerCase();
+    console.log(playerChoice);
+    console.log(currentQuestion);
+    //let showQuestion = evt.targert.textContent
+    checkWinner(playerChoice, currentQuestion);
+    currentQuestion = generateQuestion()
+    render();
 }
-//old skio button - just switch elements -variables
+//old skip button - just switch elements -variables
+// teh buttons are working fine except true which shows"check winner True on one line, and incorrect on the next"
 tbtnEl.addEventListener('click', handleClick)
     console.log();
 
-fbtnEl.addEventListener('click', function(){
-    console.log("This is False");
-})
+fbtnEl.addEventListener('click', handleClick)
+
 
 sbtnEl.addEventListener('click', function(){
     console.log("I'm Ready to Play!");
@@ -58,10 +64,8 @@ sbtnEl.addEventListener('click', function(){
 function init(){
     console.log('starting game')
     playerScore = 0;
-    skipQuestion = 2;
-    strikeScore = 3;
-    generateQuestion();
-
+    questionCount = 0;
+    currentQuestion = generateQuestion();
     render();
 }
 
@@ -78,7 +82,7 @@ function renderScores(){
     pScoreEl.textContent = playerScore;
    // had this as render text 
    
-    //showQuestEl.textContent = showQuestion;
+    showQuestEl.textContent = currentQuestion.question;
 }
 
 function renderResults(){
@@ -87,10 +91,13 @@ function renderResults(){
 
 function generateQuestion (){
     let currentQuestion = Math.floor(Math.random()*questionList.length);
+   
+    
     return questionList[currentQuestion];
-    showQuestEl.textContent; //= showQuestion;
-}
 
+   // showQuestEl.textContent; //= showQuestion; added this to see if i could make the output for generate questions show up 
+}
+// i understand that choice and cquestion are parameters that we will pass each argument in, but i dont know where orhow we determine what is a player choice, i assumed it would be the button clicks, i need to go back and rewatch the lessons to see what was done.
 function checkWinner (playerChoice, currentQuestion) {
     console.log('check winner', playerChoice)
     if(playerChoice === currentQuestion.answer) {
@@ -100,10 +107,12 @@ function checkWinner (playerChoice, currentQuestion) {
         playerScore -= 1;
         console.log("incorrect")
     };
+    gameOver();
 }
 
 function gameOver (){
-    if(playerScore === 5 || questionCount === 10);
+    if(playerScore === 5 || questionCount === 10)alert("play again?");
+    
     //gameOver();
 }
 
