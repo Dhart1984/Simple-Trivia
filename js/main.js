@@ -38,7 +38,6 @@ function handleClick(evt) {
     // fbtnEl.style.color = red;
     //let showQuestion = evt.targert.textContent
     checkWinner(playerChoice, currentQuestion);
-   
     renderColor(evt);
     cb();
     //render();
@@ -46,11 +45,11 @@ function handleClick(evt) {
 
 function startClick(evt) {
     let playerChoiceStart = evt.target.textContent.toLowerCase();
-    //console.log(playerChoiceStart);
-    currentQuestion = generateQuestion()
-    cb();
-    
+
     init();
+    // cb();
+
+
 }
 
 tbtnEl.addEventListener('click', handleClick)
@@ -60,8 +59,8 @@ fbtnEl.addEventListener('click', handleClick)
 
 
 sbtnEl.addEventListener('click', startClick);
-    
-  
+
+
 
 
 function init() {
@@ -73,6 +72,8 @@ function init() {
 }
 
 function render() {
+    renderElements();
+
     console.log('rendering game')
 
 
@@ -85,8 +86,10 @@ function renderColor(evt) {
         fbtnEl.style.background = "red"
     } else if (evt.target.textContent === "Start") {
         sbtnEl.style.background = 'blue';
-
     }
+    setTimeout(function () {
+        evt.target.style.background = ""
+    }, 800);
 }
 
 function renderElements() {
@@ -95,9 +98,10 @@ function renderElements() {
 }
 
 function cb() {
-    renderElements();
-    generateQuestion();
+
+    currentQuestion = generateQuestion();
     gameOver();
+    render();
 }
 
 function generateQuestion() {
@@ -118,12 +122,11 @@ function checkWinner(playerChoice, currentQuestion) {
 }
 
 function gameOver() {
-    if (playerScore === 5 || questionCount === 10) alert("play again?");
-}
+    if (playerScore === 5 || questionCount === 10){
+        
+    }}
 
-function startGame() {
+//function startGame(){}
 
-}
-
-init();
+//init();
 
