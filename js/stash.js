@@ -16,4 +16,14 @@ function gernerateQuestion (){
 }
 
 
+import "style.css";
+console.log("tomer demo");
+
+let timer
+let delay 
+let countState = 0
+
+function init(){
+    delay = 1000
+}
 
