@@ -20,13 +20,13 @@ const questionList = [
 
 
 //apps state (variables) //what data the application of the game needs to render
-        //playerScore, rightAnswer
+//playerScore, rightAnswer
 let playerScore;
 //let showQuestion; // i added this to see if i could use it to show my questions in the browser -didnt work
 let currentQuestion;
 let questionCount;
 
-                                //cached elements 
+//cached elements 
 
 //cached scores
 const pScoreEl = document.querySelector("#p-score");
@@ -37,31 +37,34 @@ const fbtnEl = document.querySelector('#false-button');
 const sbtnEl = document.querySelector('#start-button');
 const showQuestEl = document.querySelector('#show-question') // i added this to see if i could use it to show my questions in the browser -didnt work
 
-                                //event listeners
+//event listeners
 //removed the for each becaue it wasnt an array per instructor notes
 function handleClick(evt) {
     const playerChoice = evt.target.textContent.toLowerCase();
     console.log(playerChoice);
     console.log(currentQuestion);
+    // tbtnEl.style.color = green;
+    // fbtnEl.style.color = red;
     //let showQuestion = evt.targert.textContent
     checkWinner(playerChoice, currentQuestion);
     currentQuestion = generateQuestion()
+    renderColor(evt);
     render();
 }
 //old skip button - just switch elements -variables
 // teh buttons are working fine except true which shows"check winner True on one line, and incorrect on the next"
 tbtnEl.addEventListener('click', handleClick)
-    console.log();
+console.log();
 
 fbtnEl.addEventListener('click', handleClick)
 
 
-sbtnEl.addEventListener('click', function(){
-    console.log("I'm Ready to Play!");
-})
-                                //functions 
+sbtnEl.addEventListener('click', handleClick)
+console.log("I'm Ready to Play!");
 
-function init(){
+//functions 
+
+function init() {
     console.log('starting game')
     playerScore = 0;
     questionCount = 0;
@@ -69,38 +72,56 @@ function init(){
     render();
 }
 
-function render(){
+function render() {
     console.log('rendering game')
     renderScores();
     generateQuestion();
     //renderResults();
-   // generateQuestion();
+    // generateQuestion();
 }
 
-function renderScores(){
+
+
+function renderColor(evt) {
+    if (evt.target.textContent === "True") {
+        tbtnEl.style.background = 'green';
+    } else if (evt.target.textContent === 'False') {
+        fbtnEl.style.background = "red"
+
+    } else if (evt.target.textContent === "Start"){
+        sbtnEl.style.background = 'blue';
+
+    }
+    //return init(); thought this would end the code to return colors back to no-color 
+
+
+}
+
+
+function renderScores() {
     //update cached dom elements - scoreEls
     pScoreEl.textContent = playerScore;
-   // had this as render text 
-   
+    // had this as render text 
+
     showQuestEl.textContent = currentQuestion.question;
 }
 
-function renderResults(){
+function renderResults() {
     // add game logic here too? if the player won or lost // i could addcheck winner / then create anew elelmt that displa whether a player won or lost, then use textContent with the newly created element?
 }
 
-function generateQuestion (){
-    let currentQuestion = Math.floor(Math.random()*questionList.length);
-   
-    
+function generateQuestion() {
+    let currentQuestion = Math.floor(Math.random() * questionList.length);
+
+
     return questionList[currentQuestion];
 
-   // showQuestEl.textContent; //= showQuestion; added this to see if i could make the output for generate questions show up 
+    // showQuestEl.textContent; //= showQuestion; added this to see if i could make the output for generate questions show up 
 }
 // i understand that choice and cquestion are parameters that we will pass each argument in, but i dont know where orhow we determine what is a player choice, i assumed it would be the button clicks, i need to go back and rewatch the lessons to see what was done.
-function checkWinner (playerChoice, currentQuestion) {
+function checkWinner(playerChoice, currentQuestion) {
     console.log('check winner', playerChoice)
-    if(playerChoice === currentQuestion.answer) {
+    if (playerChoice === currentQuestion.answer) {
         playerScore += 1;
         console.log("correct")
     } else {
@@ -110,9 +131,9 @@ function checkWinner (playerChoice, currentQuestion) {
     gameOver();
 }
 
-function gameOver (){
-    if(playerScore === 5 || questionCount === 10)alert("play again?");
-    
+function gameOver() {
+    if (playerScore === 5 || questionCount === 10) alert("play again?");
+
     //gameOver();
 }
 
