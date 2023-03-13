@@ -67,7 +67,7 @@ const questionList = [
     { question: "True or False: The 'Uncanny Valley' is a psychological concept that describes the discomfort people feel when they encounter robots or other artificial beings that look almost, but not quite, human.", answer: "true" },
     { question: "True or False: The study of anthropology focuses solely on the history and cultures of human societies.", answer: "false" },
     { question: "True or False: The primary function of red blood cells is to carry oxygen from the lungs to the body's tissues.", answer: "true" },
-   
+
 ];
 
 
@@ -180,7 +180,8 @@ function checkWinner(playerChoice, currentQuestion) {
 
 function gameOver() {
     if (playerScore === 5 || questionCount === 10) {
-init();
+        
+        init();
     }
 }
 

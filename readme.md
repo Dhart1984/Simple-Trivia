@@ -1,29 +1,33 @@
 ***Simple Trivia Game**
--   MVP LEVEL 
+-   https://dhart1984.github.io/Simple-Trivia/
 -   ***Objective***
-    -   Simple Trivia, is a one player game in which the user is asked a question (card) and selects the correct choice out of three choices(buttons).
+    -   Simple Trivia, is a one player game in which the user is asked a question and selects the correct choice, either true or false.
 -   ***User Stories ***
--   tell the story from1st person perspective / how the player will interact with the game/ what do they see, what are theri option, how does it flow ?
-first experince of teh user ... what do they see when th epage loads 
-what happens after that? 
+- When the player clicks the link the will see the name o fthe game (simple trivia) and three buttons (treu, false, and start game). 
+- When the player chooses startgame, teh game will start and questions will be displayed that can be answered treu or false. 
 
--   potential issues - how do i store the questions 
--   make an object for storing the questions 
--   check value of the option s
--   compare it againstcorrect answer 
-where is the correct answwer 
-how do we get to it 
-
-AN ARRAY OF OBJECTS 
-
-FITST QUESTION IS INDEX 0 
 -   ***Rules***
-    -   The players is awared 10 points for each correct answer.
-    -   When the player reaches 50 points, the player is announced the winner. (game over) 
-    -   If the player makes an incorrect choice, the player recieves a (strike).
-    -   If the player recieves three strikes (incorrect choices) before he/she reaches the 50 point winner status. The game is over.
-    -   The player will then be (prompted) to play again.
-    -   
+    -   The players is awared 1 points for each correct answer.
+    -   When the player reaches 5 points, the player is announced the winner. (game over) 
+    -   If the player makes an incorrect choice, the player loses 1 point.
+    -   The game restarts once a player has recieved 5 points.
+    -   Presing the start button will start the game initialy and restart the game at anypoint 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -   ***EXTRAS***
         -   Add a skip button. If the question is too hard you can use the skip button to get to the next question. 
